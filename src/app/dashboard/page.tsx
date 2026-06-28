@@ -9,6 +9,7 @@ import CRMModule from "@/components/dashboard/CRMModule";
 import POSModule from "@/components/dashboard/POSModule";
 import ERPModule from "@/components/dashboard/ERPModule";
 import SalesAnalytics from "@/components/dashboard/SalesAnalytics";
+import IntelligenceDashboard from "@/components/dashboard/IntelligenceDashboard";
 import EnhancedSpeculation from "@/components/dashboard/EnhancedSpeculation";
 import OpportunityNavigator from "@/components/dashboard/OpportunityNavigator";
 import RecentActivity from "@/components/dashboard/RecentActivity";
@@ -204,76 +205,8 @@ export default function DashboardPage() {
         )}
 
         {activeTab === "intel" && (
-          <div className="flex-1 overflow-y-auto p-4 animate-fade-in">
-            <div className="grid grid-cols-3 gap-4 h-full">
-              <div className="space-y-4">
-                <OpportunityNavigator />
-                <SpeculationPanel />
-              </div>
-              <div className="space-y-4">
-                <EnhancedSpeculation />
-              </div>
-              <div className="space-y-4">
-                <div className="card-premium rounded-xl overflow-hidden">
-                  <div className="px-5 py-3.5" style={{
-                    borderBottom: "1px solid rgba(26, 37, 64, 0.5)",
-                    background: "linear-gradient(135deg, rgba(6, 182, 212, 0.03), rgba(59, 130, 246, 0.02))",
-                  }}>
-                    <h3 className="text-[12px] font-semibold text-white uppercase tracking-wider">Market Overview</h3>
-                  </div>
-                  <div className="p-5 space-y-4">
-                    <div className="grid grid-cols-2 gap-3">
-                      {[
-                        { label: "Market Phase", value: "Rapid Growth", color: "text-emerald-400" },
-                        { label: "Risk Level", value: "Moderate", color: "text-amber-400" },
-                        { label: "Zones Tracked", value: "10", color: "text-cyan-400" },
-                        { label: "Data Sources", value: "12 Live", color: "text-blue-400" },
-                      ].map((s) => (
-                        <div key={s.label} className="rounded-lg p-3 text-center" style={{
-                          background: "rgba(10, 14, 26, 0.4)",
-                          border: "1px solid rgba(26, 37, 64, 0.4)",
-                        }}>
-                          <span className="text-[9px] text-slate-500 uppercase block mb-1">{s.label}</span>
-                          <span className={`text-[13px] font-bold ${s.color}`}>{s.value}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <p className="text-[11px] text-slate-400 leading-relaxed">
-                      Zanzibar's real estate market is in a rapid growth phase driven by tourism recovery, infrastructure investment, and the new Golden Visa program. Coastal zones continue to outperform with 8-12% annual appreciation.
-                    </p>
-                  </div>
-                </div>
-                <div className="card-premium rounded-xl overflow-hidden">
-                  <div className="px-5 py-3.5" style={{
-                    borderBottom: "1px solid rgba(26, 37, 64, 0.5)",
-                    background: "linear-gradient(135deg, rgba(245, 158, 11, 0.03), rgba(217, 119, 6, 0.02))",
-                  }}>
-                    <h3 className="text-[12px] font-semibold text-white uppercase tracking-wider">Key Signals</h3>
-                  </div>
-                  <div className="p-5 space-y-3">
-                    {[
-                      { signal: "BUY", zone: "Paje", reason: "High tourism demand, strong rental yields" },
-                      { signal: "BUY", zone: "Fumba", reason: "Infrastructure investment driving appreciation" },
-                      { signal: "WATCH", zone: "Stone Town", reason: "Premium pricing, limited inventory" },
-                      { signal: "HOLD", zone: "Chwaka", reason: "High flood risk, low momentum" },
-                    ].map((s) => (
-                      <div key={s.zone} className="flex items-center gap-3 p-3 rounded-lg" style={{ background: "rgba(10, 14, 26, 0.4)" }}>
-                        <span className={`text-[10px] font-bold px-2 py-1 rounded ${
-                          s.signal === "BUY" ? "text-emerald-400 bg-emerald-500/10" :
-                          s.signal === "WATCH" ? "text-amber-400 bg-amber-500/10" :
-                          "text-slate-400 bg-slate-500/10"
-                        }`}>{s.signal}</span>
-                        <div className="flex-1 min-w-0">
-                          <span className="text-[12px] font-semibold text-white block">{s.zone}</span>
-                          <span className="text-[9px] text-slate-500">{s.reason}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <RecentActivity />
-              </div>
-            </div>
+          <div className="flex-1 overflow-y-auto animate-fade-in">
+            <IntelligenceDashboard />
           </div>
         )}
 

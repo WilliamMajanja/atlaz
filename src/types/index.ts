@@ -478,3 +478,121 @@ export interface SpeculationBrief {
   aiNarrative: string;
   generatedAt: string;
 }
+
+// ── Advanced Intelligence Types ─────────────────────────────────────
+
+export type MarketRegime = "bull" | "bear" | "stable" | "correction" | "transition";
+
+export interface MarketEntropy {
+  zone: string;
+  priceEntropy: number;
+  priceEntropyLabel: "very_low" | "low" | "moderate" | "high" | "very_high";
+  spatialEntropy: number;
+  spatialEntropyLabel: "concentrated" | "moderate" | "dispersed";
+  signalEntropy: number;
+  signalEntropyLabel: "unanimous" | "mixed" | "conflicted";
+  compositeEntropy: number;
+  compositeLabel: "predictable" | "moderate" | "uncertain";
+}
+
+export interface EntropySummary {
+  zoneEntropies: MarketEntropy[];
+  overallMarketEntropy: number;
+  mostPredictableZone: string;
+  mostUncertainZone: string;
+  entropyTrend: "increasing" | "stable" | "decreasing";
+}
+
+export interface CrossMetricCorrelation {
+  metricA: string;
+  metricB: string;
+  coefficient: number;
+  strength: "strong" | "moderate" | "weak" | "none";
+  direction: "positive" | "negative";
+}
+
+export interface ZoneCorrelation {
+  zoneA: string;
+  zoneB: string;
+  coefficient: number;
+  strength: "strong" | "moderate" | "weak";
+  relationship: "peer" | "divergent" | "independent" | "leading" | "lagging";
+}
+
+export interface CorrelationAnalysis {
+  crossMetric: CrossMetricCorrelation[];
+  zonePairs: ZoneCorrelation[];
+  strongestPositive: { pair: string; coefficient: number };
+  strongestNegative: { pair: string; coefficient: number };
+  independentZones: string[];
+}
+
+export interface VolatilityMetrics {
+  zone: string;
+  priceVolatility: number;
+  priceVolatilityLabel: "very_low" | "low" | "moderate" | "high" | "very_high";
+  momentumVolatility: number;
+  signalVolatility: number;
+  compositeVolatility: number;
+  compositeLabel: "stable" | "moderate" | "volatile";
+  regime: MarketRegime;
+}
+
+export interface VolatilityAnalysis {
+  zoneVolatilities: VolatilityMetrics[];
+  overallMarketVolatility: number;
+  mostStableZone: string;
+  mostVolatileZone: string;
+  dominantRegime: MarketRegime;
+  regimeConfidence: number;
+}
+
+export interface ZoneCluster {
+  id: string;
+  label: string;
+  zones: string[];
+  averageScore: number;
+  dominantCharacteristic: string;
+  description: string;
+}
+
+export interface PeerGroup {
+  anchorZone: string;
+  peers: string[];
+  similarityScore: number;
+  differentiators: string[];
+}
+
+export interface ClusterAnalysis {
+  clusters: ZoneCluster[];
+  peerGroups: PeerGroup[];
+  outliers: string[];
+  outlierReasons: Record<string, string>;
+}
+
+export interface MomentumMetrics {
+  zone: string;
+  momentumScore: number;
+  momentumLabel: "accelerating" | "strong" | "stable" | "decelerating" | "weak";
+  leadingIndicators: { name: string; value: number; signal: "positive" | "neutral" | "negative" }[];
+  laggingIndicators: { name: string; value: number; signal: "positive" | "neutral" | "negative" }[];
+  acceleration: number;
+  trendStrength: number;
+}
+
+export interface MomentumAnalysis {
+  zoneMomenta: MomentumMetrics[];
+  topMomentumZones: string[];
+  weakeningZones: string[];
+  overallMarketMomentum: "accelerating" | "stable" | "decelerating";
+  leadingIndicatorSummary: string;
+}
+
+export interface CompositeIntelligence {
+  entropy: EntropySummary;
+  correlation: CorrelationAnalysis;
+  volatility: VolatilityAnalysis;
+  clustering: ClusterAnalysis;
+  momentum: MomentumAnalysis;
+  generatedAt: string;
+}
