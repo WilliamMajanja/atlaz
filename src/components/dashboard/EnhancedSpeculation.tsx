@@ -2,8 +2,11 @@
 
 import { useState } from "react";
 import { useSpeculationStore } from "@/lib/store";
-import { neighbourhoods } from "@/data/seed/zanzibar";
 import { EntryExitSignal, SpeculationBrief } from "@/types";
+import { getDataSource } from "@/lib/data-source";
+
+const ds = getDataSource();
+const neighbourhoods = ds.getNeighbourhoods();
 
 export default function EnhancedSpeculation() {
   const { briefs, selectedZone, setSelectedZone, isGenerating, setIsGenerating, addBrief } = useSpeculationStore();

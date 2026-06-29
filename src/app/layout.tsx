@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/ui/Sidebar";
 import ErrorBoundary from "@/components/ui/ErrorBoundary";
+import { ToastProvider } from "@/components/ui/Toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,12 +48,14 @@ export default function RootLayout({
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </head>
       <body className="h-full overflow-hidden" style={{ background: "#080c18", color: "#f0f4f8" }}>
-        <div className="flex h-full">
-          <Sidebar />
-          <main className="flex-1 min-w-0 h-full">
-            <ErrorBoundary>{children}</ErrorBoundary>
-          </main>
-        </div>
+        <ToastProvider>
+          <div className="flex h-full">
+            <Sidebar />
+            <main className="flex-1 min-w-0 h-full">
+              <ErrorBoundary>{children}</ErrorBoundary>
+            </main>
+          </div>
+        </ToastProvider>
       </body>
     </html>
   );

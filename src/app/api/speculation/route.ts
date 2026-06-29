@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { neighbourhoods } from "@/data/seed/zanzibar";
 import { checkOllamaHealth, generateSpeculationBrief } from "@/lib/ollama";
 import { EntryExitSignal, PriceTarget, RiskRewardProfile, SpeculationBrief } from "@/types";
+import { getDataSource } from "@/lib/data-source";
+
+const ds = getDataSource();
+const neighbourhoods = ds.getNeighbourhoods();
 
 function generateLocalBrief(zoneId: string): SpeculationBrief | null {
   const zone = neighbourhoods.find((n) => n.id === zoneId);

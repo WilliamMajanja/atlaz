@@ -1,5 +1,8 @@
-import { neighbourhoods } from "../../data/seed/zanzibar";
 import { CrossMetricCorrelation, ZoneCorrelation, CorrelationAnalysis } from "../../types";
+import { getDataSource } from "../../lib/data-source";
+
+const ds = getDataSource();
+const neighbourhoods = ds.getNeighbourhoods();
 
 function pearsonCorrelation(x: number[], y: number[]): number {
   const n = Math.min(x.length, y.length);

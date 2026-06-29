@@ -1,6 +1,10 @@
 import { SiteAnalysisFull, GeoPoint } from "../../types";
-import { neighbourhoods, sampleListings } from "../../data/seed/zanzibar";
 import { haversineDistance } from "../../lib/distance";
+import { getDataSource } from "../../lib/data-source";
+
+const ds = getDataSource();
+const neighbourhoods = ds.getNeighbourhoods();
+const sampleListings = ds.getListings();
 
 export type AnomalySeverity = "low" | "medium" | "high" | "critical";
 export type AnomalyCategory = "price" | "risk" | "score" | "geographic" | "data" | "environmental";

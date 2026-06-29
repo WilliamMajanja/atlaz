@@ -3,8 +3,11 @@ import { haversineDistance } from "../distance";
 import { calculateRiskScore } from "../../modules/risk";
 import { calculateOpportunityScore } from "../../modules/valuation";
 import { generateReportContent, type ReportContent } from "../../modules/reports";
-import { neighbourhoods } from "../../data/seed/zanzibar";
 import { config } from "../config";
+import { getDataSource } from "../data-source";
+
+const ds = getDataSource();
+const neighbourhoods = ds.getNeighbourhoods();
 
 /**
  * Core scoring engine for ZanAtlas.

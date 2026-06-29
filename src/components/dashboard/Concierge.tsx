@@ -138,7 +138,7 @@ export default function Concierge() {
       </button>
 
       {isOpen && (
-        <div className="fixed bottom-24 right-6 z-50 w-[420px] max-h-[580px] rounded-2xl overflow-hidden shadow-2xl animate-slide-up" style={{
+        <div className="fixed bottom-24 right-4 md:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[420px] max-h-[580px] rounded-2xl overflow-hidden shadow-2xl animate-slide-up" style={{
           background: "linear-gradient(180deg, rgba(10, 14, 26, 0.98), rgba(15, 21, 37, 0.98))",
           border: "1px solid rgba(6, 182, 212, 0.15)",
           boxShadow: "0 24px 64px -16px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(6, 182, 212, 0.06)",
@@ -287,7 +287,7 @@ export default function Concierge() {
 
                   <div style={{ borderTop: "1px solid rgba(26, 37, 64, 0.5)" }} className="pt-4">
                     <h4 className="text-[14px] font-bold text-white mb-3">Your timeline?</h4>
-                    <div className="grid grid-cols-3 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                       {timelines.map((t) => (
                         <button
                           key={t.id}

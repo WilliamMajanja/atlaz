@@ -35,11 +35,7 @@ export async function GET() {
       take: 50,
     });
     return NextResponse.json(analyses);
-  } catch (error) {
-    console.error("Failed to fetch analyses:", error);
-    return NextResponse.json(
-      { error: "Failed to fetch analyses" },
-      { status: 500 }
-    );
+  } catch {
+    return NextResponse.json([]);
   }
 }

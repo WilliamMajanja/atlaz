@@ -43,7 +43,7 @@ export default function SalesAnalytics() {
       </div>
 
       <div className="p-4 space-y-4">
-        <div className="grid grid-cols-4 gap-2">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
           {[
             { label: "Pipeline", value: `$${(pipelineTotal / 1000000).toFixed(1)}M`, color: "#22d3ee" },
             { label: "Won", value: `$${(wonTotal / 1000000).toFixed(1)}M`, color: "#34d399" },

@@ -213,7 +213,7 @@ export default function AnalysisPage() {
 
                       <div className="grid grid-cols-2 gap-4">
                         <AnomalyDetection analysis={analysis} />
-                        <AnomalyMitigation anomalies={anomalies} />
+                        <AnomalyMitigation anomalies={anomalies} analysis={analysis} />
                       </div>
 
                       <CumulativeAssessment analysis={analysis} />

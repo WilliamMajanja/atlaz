@@ -66,14 +66,14 @@ export default function SpeculationPanel() {
 
   return (
     <div
-      className="rounded-xl overflow-hidden"
+      className="rounded-xl flex flex-col"
       style={{
         background: "linear-gradient(145deg, rgba(17, 24, 39, 0.9), rgba(15, 23, 42, 0.95))",
         border: "1px solid rgba(30, 41, 59, 0.6)",
       }}
     >
       <div
-        className="px-4 py-3 flex items-center gap-2.5"
+        className="px-4 py-3 flex items-center gap-2.5 shrink-0"
         style={{
           borderBottom: "1px solid rgba(30, 41, 59, 0.5)",
           background: "linear-gradient(135deg, rgba(245, 158, 11, 0.03), rgba(217, 119, 6, 0.02))",
@@ -229,7 +229,7 @@ export default function SpeculationPanel() {
               </div>
 
               {comparables.comparables.length > 0 && (
-                <div className="space-y-1 max-h-[140px] overflow-y-auto">
+                <div className="space-y-1">
                   {comparables.comparables.map((c) => (
                     <div key={c.id} className="flex items-center justify-between py-1.5 px-2 rounded-lg" style={{
                       background: "rgba(10, 14, 26, 0.3)",

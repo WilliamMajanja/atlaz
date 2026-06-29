@@ -1,5 +1,8 @@
-import { neighbourhoods } from "../../data/seed/zanzibar";
 import { ZoneCluster, PeerGroup, ClusterAnalysis } from "../../types";
+import { getDataSource } from "../../lib/data-source";
+
+const ds = getDataSource();
+const neighbourhoods = ds.getNeighbourhoods();
 
 interface ZoneVector {
   name: string;

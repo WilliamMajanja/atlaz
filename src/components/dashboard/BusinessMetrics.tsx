@@ -69,13 +69,14 @@ export default function BusinessMetrics() {
   const { metrics: data } = usePipelineStore();
 
   return (
-    <div className="grid grid-cols-6 gap-3">
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
       {metrics.map((m, i) => {
         const value = data[m.key as keyof typeof data] as number;
         return (
           <div
             key={m.key}
-            className="group relative overflow-hidden rounded-xl p-4 transition-all duration-300 hover:scale-[1.02] card-premium stagger-${i + 1}"
+            className="group relative overflow-hidden rounded-xl p-4 transition-all duration-300 hover:scale-[1.02] card-premium"
+            style={{ animationDelay: `${(i + 1) * 0.05}s` }}
           >
             <div className="absolute top-0 right-0 w-24 h-24 opacity-[0.03] pointer-events-none">
               <div className="absolute inset-0 rounded-full bg-cyan-400 blur-3xl" />

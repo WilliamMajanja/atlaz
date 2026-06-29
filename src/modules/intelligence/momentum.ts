@@ -1,6 +1,10 @@
-import { neighbourhoods, sampleListings } from "../../data/seed/zanzibar";
 import { MomentumMetrics, MomentumAnalysis } from "../../types";
 import { haversineDistance } from "../../lib/distance";
+import { getDataSource } from "../../lib/data-source";
+
+const ds = getDataSource();
+const neighbourhoods = ds.getNeighbourhoods();
+const sampleListings = ds.getListings();
 
 export function calculateZoneMomentum(zoneName: string): MomentumMetrics {
   const zone = neighbourhoods.find((n) => n.name === zoneName);

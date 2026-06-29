@@ -13,9 +13,14 @@ export default function AnalysisPanel() {
   const handleRunAnalysis = async () => {
     if (!selectedPoint) return;
     setIsAnalyzing(true);
-    const analysis = runFullSiteAnalysis(selectedPoint);
-    setCurrentAnalysis(analysis);
-    setIsAnalyzing(false);
+    try {
+      const analysis = runFullSiteAnalysis(selectedPoint);
+      setCurrentAnalysis(analysis);
+    } catch {
+      console.error("Analysis failed");
+    } finally {
+      setIsAnalyzing(false);
+    }
   };
 
   const handleSave = () => {

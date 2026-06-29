@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
         latitude,
         longitude,
         description,
-        tags: tags ?? [],
+        tags: Array.isArray(tags) ? tags.join(", ") : (tags ?? ""),
       },
     });
 

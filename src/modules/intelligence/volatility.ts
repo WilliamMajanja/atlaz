@@ -1,7 +1,10 @@
-import { neighbourhoods } from "../../data/seed/zanzibar";
 import { VolatilityMetrics, VolatilityAnalysis, MarketRegime } from "../../types";
-import { sampleListings } from "../../data/seed/zanzibar";
 import { haversineDistance } from "../../lib/distance";
+import { getDataSource } from "../../lib/data-source";
+
+const ds = getDataSource();
+const neighbourhoods = ds.getNeighbourhoods();
+const sampleListings = ds.getListings();
 
 function calculateCoefficientOfVariation(values: number[]): number {
   if (values.length < 2) return 0;

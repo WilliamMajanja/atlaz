@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import type { Anomaly } from "@/modules/anomaly-detection";
-import { AnomalyMitigationPlan } from "@/types";
+import { AnomalyMitigationPlan, SiteAnalysisFull } from "@/types";
 
 interface AnomalyMitigationProps {
   anomalies: Anomaly[];
+  analysis: SiteAnalysisFull;
 }
 
 const effortColors: Record<string, string> = {
@@ -27,7 +28,7 @@ const residualColors: Record<string, string> = {
   high: "text-rose-400",
 };
 
-export default function AnomalyMitigation({ anomalies }: AnomalyMitigationProps) {
+export default function AnomalyMitigation({ anomalies, analysis }: AnomalyMitigationProps) {
   const [mitigations, setMitigations] = useState<AnomalyMitigationPlan[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -39,7 +40,7 @@ export default function AnomalyMitigation({ anomalies }: AnomalyMitigationProps)
       const response = await fetch("/api/mitigation", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ anomalies }),
+        body: JSON.stringify({ analysis, anomalies }),
       });
       if (!response.ok) throw new Error("Failed to generate mitigation plans");
       const data = await response.json();

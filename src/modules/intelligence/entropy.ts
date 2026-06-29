@@ -1,7 +1,10 @@
-import { neighbourhoods } from "../../data/seed/zanzibar";
 import { MarketEntropy, EntropySummary } from "../../types";
-import { sampleListings } from "../../data/seed/zanzibar";
 import { haversineDistance } from "../../lib/distance";
+import { getDataSource } from "../../lib/data-source";
+
+const ds = getDataSource();
+const neighbourhoods = ds.getNeighbourhoods();
+const sampleListings = ds.getListings();
 
 function shannonEntropy(probabilities: number[]): number {
   const total = probabilities.reduce((s, v) => s + v, 0);

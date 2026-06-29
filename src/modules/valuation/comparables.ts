@@ -1,6 +1,10 @@
 import { GeoPoint, ComparableSale, ComparableAnalysisResult } from "../../types";
-import { neighbourhoods, sampleListings } from "../../data/seed/zanzibar";
 import { haversineDistance } from "../../lib/distance";
+import { getDataSource } from "../../lib/data-source";
+
+const ds = getDataSource();
+const neighbourhoods = ds.getNeighbourhoods();
+const sampleListings = ds.getListings();
 
 function findNearestNeighbourhood(point: GeoPoint): { name: string; id: string } | null {
   let nearest: { name: string; id: string } | null = null;

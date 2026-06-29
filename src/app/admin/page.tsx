@@ -1,6 +1,5 @@
 "use client";
 
-import { neighbourhoods, sampleListings, infrastructureAssets } from "@/data/seed/zanzibar";
 import {
   zanzibarDataSources,
   sampleZansisIndicators,
@@ -11,6 +10,12 @@ import {
   sampleOsmExtracts,
   sampleSatelliteCoverage,
 } from "@/data/seed/opendata";
+import { getDataSource } from "@/lib/data-source";
+
+const ds = getDataSource();
+const neighbourhoods = ds.getNeighbourhoods();
+const sampleListings = ds.getListings();
+const infrastructureAssets = ds.getInfrastructureAssets();
 
 const categoryLabels: Record<string, string> = {
   government_statistics: "Official Government Statistics",

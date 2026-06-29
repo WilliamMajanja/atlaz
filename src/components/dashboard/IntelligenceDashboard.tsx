@@ -119,7 +119,7 @@ function OverviewTab({ intel }: { intel: CompositeIntelligence }) {
 
   return (
     <div className="space-y-4">
-      <div className="grid grid-cols-4 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
         <div className="rounded-xl p-4 card-premium">
           <span className="text-[9px] text-slate-500 uppercase tracking-wider">Market Entropy</span>
           <div className="text-[22px] font-bold text-white mt-1">
@@ -176,7 +176,7 @@ function OverviewTab({ intel }: { intel: CompositeIntelligence }) {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="rounded-xl p-4 card-premium">
           <h3 className="text-[11px] font-semibold text-white uppercase tracking-wider mb-3">Zone Entropy Rankings</h3>
           <div className="space-y-1.5">
@@ -235,7 +235,7 @@ function EntropyTab({ intel }: { intel: CompositeIntelligence }) {
 
   return (
     <div className="space-y-4">
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="rounded-xl p-4 card-premium">
           <h4 className="text-[9px] text-slate-500 uppercase">Price Entropy</h4>
           <p className="text-[10px] text-slate-400 mt-1">Measures price dispersion within each zone. High entropy = wide price variation.</p>
@@ -254,15 +254,16 @@ function EntropyTab({ intel }: { intel: CompositeIntelligence }) {
         <div className="px-4 py-3" style={{ borderBottom: "1px solid rgba(26, 37, 64, 0.4)" }}>
           <h3 className="text-[11px] font-semibold text-white uppercase tracking-wider">Zone Entropy Matrix</h3>
         </div>
-        <div className="p-3 space-y-1">
-          <div className="grid grid-cols-[1fr_80px_80px_80px_100px] gap-2 px-2 py-1 text-[8px] text-slate-500 uppercase tracking-wider">
-            <span>Zone</span>
-            <span className="text-center">Price</span>
-            <span className="text-center">Spatial</span>
-            <span className="text-center">Signal</span>
-            <span className="text-center">Composite</span>
-          </div>
-          {entropy.zoneEntropies.sort((a, b) => b.compositeEntropy - a.compositeEntropy).map((z) => (
+        <div className="overflow-x-auto">
+          <div className="p-3 space-y-1 min-w-[540px]">
+            <div className="grid grid-cols-[1fr_80px_80px_80px_100px] gap-2 px-2 py-1 text-[8px] text-slate-500 uppercase tracking-wider">
+              <span>Zone</span>
+              <span className="text-center">Price</span>
+              <span className="text-center">Spatial</span>
+              <span className="text-center">Signal</span>
+              <span className="text-center">Composite</span>
+            </div>
+            {entropy.zoneEntropies.sort((a, b) => b.compositeEntropy - a.compositeEntropy).map((z) => (
             <div key={z.zone} className="grid grid-cols-[1fr_80px_80px_80px_100px] gap-2 items-center px-2 py-1.5 rounded-lg" style={{
               background: "rgba(10, 14, 26, 0.4)",
             }}>
@@ -290,6 +291,7 @@ function EntropyTab({ intel }: { intel: CompositeIntelligence }) {
               </div>
             </div>
           ))}
+        </div>
         </div>
       </div>
     </div>
@@ -326,7 +328,8 @@ function CorrelationTab({ intel }: { intel: CompositeIntelligence }) {
           <div className="px-4 py-3" style={{ borderBottom: "1px solid rgba(26, 37, 64, 0.4)" }}>
             <h3 className="text-[11px] font-semibold text-white uppercase tracking-wider">Cross-Metric Correlations</h3>
           </div>
-          <div className="p-3 space-y-1">
+          <div className="overflow-x-auto">
+          <div className="p-3 space-y-1 min-w-[480px]">
             <div className="grid grid-cols-[1fr_1fr_80px_60px] gap-2 px-2 py-1 text-[8px] text-slate-500 uppercase tracking-wider">
               <span>Metric A</span><span>Metric B</span><span className="text-center">Coeff</span><span className="text-center">Strength</span>
             </div>
@@ -348,13 +351,15 @@ function CorrelationTab({ intel }: { intel: CompositeIntelligence }) {
               </div>
             ))}
           </div>
+          </div>
         </div>
       ) : (
         <div className="rounded-xl overflow-hidden card-premium">
           <div className="px-4 py-3" style={{ borderBottom: "1px solid rgba(26, 37, 64, 0.4)" }}>
             <h3 className="text-[11px] font-semibold text-white uppercase tracking-wider">Zone Pair Correlations</h3>
           </div>
-          <div className="p-3 space-y-1">
+          <div className="overflow-x-auto">
+          <div className="p-3 space-y-1 min-w-[480px]">
             <div className="grid grid-cols-[1fr_1fr_70px_70px] gap-2 px-2 py-1 text-[8px] text-slate-500 uppercase tracking-wider">
               <span>Zone A</span><span>Zone B</span><span className="text-center">Coeff</span><span className="text-center">Relation</span>
             </div>
@@ -376,10 +381,11 @@ function CorrelationTab({ intel }: { intel: CompositeIntelligence }) {
               </div>
             ))}
           </div>
+          </div>
         </div>
       )}
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="rounded-xl p-4 card-premium">
           <h4 className="text-[9px] text-slate-500 uppercase">Strongest Positive</h4>
           <p className="text-[12px] text-emerald-400 font-bold mt-1">
@@ -412,10 +418,10 @@ function VolatilityTab({ intel }: { intel: CompositeIntelligence }) {
 
   return (
     <div className="space-y-4">
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="rounded-xl p-4 card-premium">
           <div className="flex items-center gap-2 mb-2">
-            <div className="w-2 h-2 rounded-full" style={{ background: volatility.overallMarketVolatility <= 0.3 ? "#34d399" : volatility.overallMarketVolatility <= 0.55 ? "#fbbf24" : "#fb7185" }} />
+            <div className="w-2 h-2 rounded-full shrink-0" style={{ background: volatility.overallMarketVolatility <= 0.3 ? "#34d399" : volatility.overallMarketVolatility <= 0.55 ? "#fbbf24" : "#fb7185" }} />
             <span className="text-[9px] text-slate-500 uppercase">Market Volatility</span>
           </div>
           <span className="text-[20px] font-bold text-white">
@@ -438,7 +444,8 @@ function VolatilityTab({ intel }: { intel: CompositeIntelligence }) {
         <div className="px-4 py-3" style={{ borderBottom: "1px solid rgba(26, 37, 64, 0.4)" }}>
           <h3 className="text-[11px] font-semibold text-white uppercase tracking-wider">Zone Volatility Breakdown</h3>
         </div>
-        <div className="p-3 space-y-1">
+        <div className="overflow-x-auto">
+        <div className="p-3 space-y-1 min-w-[540px]">
           <div className="grid grid-cols-[1fr_70px_70px_70px_70px_80px] gap-2 px-2 py-1 text-[8px] text-slate-500 uppercase tracking-wider">
             <span>Zone</span><span className="text-center">Price</span><span className="text-center">Momentum</span><span className="text-center">Signal</span><span className="text-center">Overall</span><span className="text-center">Regime</span>
           </div>
@@ -463,6 +470,7 @@ function VolatilityTab({ intel }: { intel: CompositeIntelligence }) {
             </div>
           ))}
         </div>
+        </div>
       </div>
     </div>
   );
@@ -473,7 +481,7 @@ function ClustersTab({ intel }: { intel: CompositeIntelligence }) {
 
   return (
     <div className="space-y-4">
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {clustering.clusters.map((c) => (
           <div key={c.id} className="rounded-xl p-4 card-premium">
             <div className="flex items-center gap-2 mb-2">
@@ -544,7 +552,7 @@ function MomentumTab({ intel }: { intel: CompositeIntelligence }) {
 
   return (
     <div className="space-y-4">
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="rounded-xl p-4 card-premium">
           <span className="text-[9px] text-slate-500 uppercase">Market Momentum</span>
           <MomentumBadge label={momentum.overallMarketMomentum} />

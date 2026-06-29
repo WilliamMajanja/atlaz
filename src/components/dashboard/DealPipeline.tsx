@@ -133,7 +133,7 @@ export default function DealPipeline() {
           if (!showAll && (stage === "won" || stage === "lost")) return null;
 
           return (
-            <div key={stage} className="flex-1 min-w-[200px]">
+              <div key={stage} className="flex-1 min-w-[180px] md:min-w-[220px]">
               <div className="flex items-center justify-between mb-3 px-1">
                 <div className="flex items-center gap-2">
                   <span className="text-[11px]">{cfg.icon}</span>

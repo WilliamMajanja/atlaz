@@ -32,5 +32,10 @@ export const config = {
     { id: "flood-risk", name: "Flood Risk", defaultVisible: false },
     { id: "development-zones", name: "Development Opportunities", defaultVisible: true },
     { id: "listings", name: "Sample Land Listings", defaultVisible: true },
+    { id: "satellite", name: "Satellite Imagery", defaultVisible: false },
+    { id: "intel-entropy", name: "Intel: Market Entropy", defaultVisible: false },
+    { id: "intel-volatility", name: "Intel: Volatility & Regime", defaultVisible: false },
+    { id: "intel-clusters", name: "Intel: Zone Clusters", defaultVisible: false },
+    { id: "intel-momentum", name: "Intel: Momentum Signals", defaultVisible: false },
   ],
 } as const;

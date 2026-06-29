@@ -16,7 +16,7 @@ interface MapState {
 export const useMapStore = create<MapState>((set) => ({
   center: { latitude: -6.1659, longitude: 39.2026 },
   zoom: 11,
-  activeLayers: ["roads", "coastal-zones", "development-zones", "listings"],
+  activeLayers: ["coastal-zones", "development-zones", "listings", "satellite"],
   selectedPoint: null,
 
   setCenter: (center) => set({ center }),

@@ -1,8 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { neighbourhoods } from "@/data/seed/zanzibar";
 import { useMapStore } from "@/lib/store";
+import { getDataSource } from "@/lib/data-source";
+
+const ds = getDataSource();
+const neighbourhoods = ds.getNeighbourhoods();
 
 type Step = "welcome" | "purpose" | "budget" | "timeline" | "risk" | "results";
 

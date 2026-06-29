@@ -1,7 +1,10 @@
-import { MarketSignal, MarketSignalsResult, SignalType, SignalStrength } from "../../types";
-import { neighbourhoods } from "../../data/seed/zanzibar";
+import { MarketSignal, MarketSignalsResult, SignalType, SignalStrength, NeighbourhoodProfile } from "../../types";
+import { getDataSource } from "../../lib/data-source";
 
-function calculateZoneSignal(zone: typeof neighbourhoods[0]): {
+const ds = getDataSource();
+const neighbourhoods = ds.getNeighbourhoods();
+
+function calculateZoneSignal(zone: NeighbourhoodProfile): {
   type: SignalType;
   strength: SignalStrength;
   score: number;
